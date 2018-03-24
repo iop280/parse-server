@@ -31,7 +31,8 @@ export class UsersRouter extends ClassesRouter {
 
   handleMe(req) {
     if (!req.info || !req.info.sessionToken) {
-      throw new Parse.Error(Parse.Error.INVALID_SESSION_TOKEN, 'invalid session token');
+      console.log(req);
+      throw new Parse.Error(Parse.Error.INVALID_SESSION_TOKEN, 'UsersRouter - invalid session token');
     }
     const sessionToken = req.info.sessionToken;
     return rest.find(req.config, Auth.master(req.config), '_Session',

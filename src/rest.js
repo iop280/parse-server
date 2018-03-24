@@ -74,7 +74,8 @@ function del(config, auth, className, objectId) {
             firstResult.className = className;
             if (className === '_Session' && !auth.isMaster) {
               if (!auth.user || firstResult.user.objectId !== auth.user.id) {
-                throw new Parse.Error(Parse.Error.INVALID_SESSION_TOKEN, 'invalid session token');
+                console.log(auth);
+                throw new Parse.Error(Parse.Error.INVALID_SESSION_TOKEN, 'REST invalid session token');
               }
             }
             var cacheAdapter = config.cacheController;
