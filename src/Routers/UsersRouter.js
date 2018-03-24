@@ -42,7 +42,10 @@ export class UsersRouter extends ClassesRouter {
         if (!response.results ||
           response.results.length == 0 ||
           !response.results[0].user) {
-          throw new Parse.Error(Parse.Error.INVALID_SESSION_TOKEN, 'invalid session token');
+            console.log(response);
+            console.log(sessionToken);
+            console.log(req);
+          throw new Parse.Error(Parse.Error.INVALID_SESSION_TOKEN, 'NO RESPONSE? - invalid session token');
         } else {
           const user = response.results[0].user;
           // Send token back on the login, because SDKs expect that.
